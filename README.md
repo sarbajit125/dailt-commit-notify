@@ -25,3 +25,4 @@
 
 1. Currently multiple paths are not supported, as appleScript is not passing the arguments properly to bash script.
 2. Whole system label checking not supported as it may affect system performance adversely.
+3. Sub directories in the path should not contains space in folders name.
