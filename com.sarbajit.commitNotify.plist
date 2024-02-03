@@ -9,7 +9,7 @@
 	<key>ProgramArguments</key>
 	<array>
 		<string>osascript</string>
-		<string>/Users/comviva/dailt-commit-notify/commitNotifyScript.scpt</string>
+		<string>/Users/comviva/daily-commit-notify/commitNotifyScript.scpt</string>
 	</array>
 	<key>StartCalendarInterval</key>
 	<dict>

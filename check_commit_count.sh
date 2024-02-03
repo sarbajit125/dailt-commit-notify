@@ -6,7 +6,6 @@ function check_commit_count() {
     username=$(git config --global user.name)
     for path in "${paths[@]}"; do
         if [ -d "$path" ]; then
-            echo "Checking commits in $path"
             
             cd "$path" || return 1  # Change directory, return if unsuccessful
             
@@ -18,17 +17,18 @@ function check_commit_count() {
                 commit_count=$(git rev-list --count --author="$username" --since="midnight" HEAD)
                 
                 if [ "$commit_count" -gt 0 ]; then
-                    echo "Commits found in $git_dir. Commit count: $commit_count, Breaking..."
-                    return 1  # Return false
+                    echo "success"
+                    return 0  # Return true
                 fi
                 
                 cd - > /dev/null  # Move back to the previous directory
             done
         else
             echo "Directory $path does not exist."
+            return 1
         fi
     done
-    echo "None of Git directories have acceptable commit counts. Firing notification"
+    echo "fireNotify"
     return 0  # Return true
 }
 
